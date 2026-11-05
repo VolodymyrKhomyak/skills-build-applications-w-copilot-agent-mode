@@ -30,9 +30,9 @@ OctoFit Tracker is a three-tier application for a school fitness program. The st
 
 Record your plan here before editing code.
 
-- Presentation tier decision:
-- Logic tier decision:
-- Data tier decision:
+- Presentation tier decision: Wire the views to the API and satisfy loading, empty, error, and data-rendering contracts.
+- Logic tier decision: Implement and verify the four API behaviors against those models.
+- Data tier decision: Add the required model validation/defaults; leave seed behavior alone unless a regression appears, since its contract test currently passes.
 - Activity tracking approach:
 - Team management approach:
 - Leaderboard approach:
@@ -42,8 +42,8 @@ Record your plan here before editing code.
 
 Record the commands you run and what each failure means.
 
-- Data-tier command: `npm run test:data --prefix octofit-tracker/backend`
-- API command: `npm run test:api --prefix octofit-tracker/backend`
-- Frontend command: `npm test --prefix octofit-tracker/frontend`
+- Data-tier command: `npm run test:data --prefix octofit-tracker/backend`. Required fields are missing from User, Team, Activity, and Workout schemas.
+- API command: `npm run test:api --prefix octofit-tracker/backend`. Invalid activity and team inputs return 501 instead of 400; leaderboard results are empty; workout suggestions omit the expected reason.
+- Frontend command: `npm test --prefix octofit-tracker/frontend`. Data rendering and user-specific workout fetching fail, along with loading, empty, and accessible error states across all four routes.
 - Backend build command: `npm run build --prefix octofit-tracker/backend`
 - Frontend build command: `npm run build --prefix octofit-tracker/frontend`
